@@ -45,6 +45,38 @@ const mealPlan = [
   ]},
 ];
 
+const thingsToAvoid = [
+  { item: 'Fried Foods', description: 'French fries, burgers, samosas' },
+  { item: 'Processed Meats', description: 'KFC, ACS' },
+  { item: 'Red Meat & organ part', description: 'Mutton and other nonveg organ (liver etc) part' },
+  { item: 'Full-Fat Dairy', description: 'Whole milk, butter, cream' },
+  { item: 'Baked Goods', description: 'Pastries, cakes, donuts' },
+  { item: 'Refined Carbs', description: 'White bread, pasta' },
+  { item: 'Processed Snacks', description: 'Chips, instant noodles' },
+  { item: 'Trans Fats', description: 'Margarine, partially hydrogenated oils' },
+  { item: 'Sugary Drinks', description: 'Soda, energy drinks' },
+  { item: 'Excess Salt', description: 'Canned soups, salty snacks' },
+  { item: 'Smoking & alcohol', description: 'Tobacco products & alcohol' },
+  { item: 'Sedentary Lifestyle', description: 'Sitting for long hours' },
+  { item: 'High Stress', description: 'Lack of relaxation' },
+  { item: 'Inconsistent Sleep', description: 'Less than 7 hours of sleep' },
+];
+
+const cholesterolLoweringFoods = [
+  'Spinach', 'Kale', 'Broccoli', 'Brussels Sprouts', 'Cabbage', 'Cauliflower', 'Carrots', 'Sweet Potatoes', 'Peas', 'Beans', 'Lentils', 'Chickpeas', 'Okra', 'Avocado', 'Eggplant', 'Garlic', 'Soybeans', 'Tofu', 'Soy Milk'
+];
+
+const exercisePlans = [
+  { type: 'Warm-up', duration: '5 mins', description: 'Light stretching, arm circles, neck rolls' },
+  { type: 'Cardio', duration: '20 mins', description: 'Brisk walking, cycling, swimming (5 days a week)' },
+  { type: 'Strength Training', duration: '10 mins', description: 'Squats, lunges, push-ups, light dumbbells (2-3 days a week)' },
+  { type: 'Flexibility', duration: '5 mins', description: 'Yoga, deep stretches' },
+];
+
+const cholesterolFriendlyDesserts = [
+  'Avocado Chocolate Mousse', 'Chia Seed Pudding', 'Baked Apples with Cinnamon', 'Oats and Nut Energy Bites', 'Greek Yogurt with Berries', 'Dark Chocolate Almond Clusters', 'Banana ice Cream', 'Carrot Halwa (with less ghee and jaggery)', 'Pumpkin Seed Bars', 'Date and Nut Laddoos'
+];
+
 function App() {
   const [selectedTab, setSelectedTab] = useState('Meal Plan');
   const [selectedDay, setSelectedDay] = useState('Monday');
@@ -63,6 +95,50 @@ function App() {
                 {meal.mandate && <div><strong>Mandate:</strong> {meal.mandate}</div>}
               </div>
             ))}
+          </div>
+        );
+      case 'Exercise Plans':
+        return (
+          <div>
+            <h2>Exercise Plans</h2>
+            {exercisePlans.map((exercise, index) => (
+              <div key={index}>
+                <strong>{exercise.type}:</strong> {exercise.duration} - {exercise.description}
+              </div>
+            ))}
+          </div>
+        );
+      case 'Things to Avoid':
+        return (
+          <div>
+            <h2>Things to Avoid</h2>
+            {thingsToAvoid.map((item, index) => (
+              <div key={index}>
+                <strong>{item.item}:</strong> {item.description}
+              </div>
+            ))}
+          </div>
+        );
+      case 'Cholesterol-Friendly Desserts':
+        return (
+          <div>
+            <h2>Cholesterol-Friendly Desserts</h2>
+            <ul>
+              {cholesterolFriendlyDesserts.map((dessert, index) => (
+                <li key={index}>{dessert}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      case 'Cholesterol-Lowering Foods':
+        return (
+          <div>
+            <h2>Cholesterol-Lowering Foods</h2>
+            <ul>
+              {cholesterolLoweringFoods.map((food, index) => (
+                <li key={index}>{food}</li>
+              ))}
+            </ul>
           </div>
         );
       default:
