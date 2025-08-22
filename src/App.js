@@ -148,7 +148,7 @@ function App() {
 
   return (
     <div>
-      <h1>Cholesterol Management Plan for Rohan Vasisth</h1>
+      <h1>Cholesterol Management Plan</h1>
       <div>
         {['Meal Plan', 'Exercise Plans', 'Things to Avoid', 'Cholesterol-Friendly Desserts', 'Cholesterol-Lowering Foods'].map((tab) => (
           <button key={tab} onClick={() => setSelectedTab(tab)}>{tab}</button>
